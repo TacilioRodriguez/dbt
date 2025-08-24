@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: stg_customers
+    description: "Tabela de clientes padronizada. Uma linha por cliente por pedido."
+    columns:
+      - name: customer_id
+        description: "Chave primária da tabela."
+        tests:
+          - unique
+          - not_null
+      - name: customer_unique_id
+        description: "ID único do cliente (pode ter vários pedidos)."
+        tests:
+          - not_null
+      - name: customer_state
+        description: "Estado onde o cliente reside."
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['SP', 'RJ', 'MG', 'ES', 'PR', 'SC', 'RS', 'GO', 'MT', 'MS', 'DF', 'AM', 'AC', 'RO', 'RR', 'AP', 'PA', 'TO', 'MA', 'PI', 'CE', 'RN', 'PB', 'PE', 'AL', 'SE', 'BA']

@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: olist_bronze  # Um nome para o grupo de fontes
+    database: dbt_dev      # Nome do seu catálogo
+    schema: bronze      # Nome do schema onde a tabela foi criada
+    tables:
+      - name: olist_customers
